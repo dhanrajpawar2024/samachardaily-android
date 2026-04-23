@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">సమాచార్ డెయిలీ</string>
+    <string name="nav_home">హోమ్</string>
+    <string name="nav_search">వెతకండి</string>
+    <string name="nav_video">వీడియో</string>
+    <string name="nav_profile">ప్రొఫైల్</string>
+    <string name="onboarding_language_title">మీ భాషను ఎంచుకోండి</string>
+    <string name="onboarding_language_subtitle">మీ వార్తలను వ్యక్తిగతీకరించడానికి భాషలు ఎంచుకోండి</string>
+    <string name="onboarding_categories_title">మీ ఆసక్తులు ఎంచుకోండి</string>
+    <string name="onboarding_categories_subtitle">మీరు అనుసరించాలనుకుంటున్న విషయాలు ఎంచుకోండి</string>
+    <string name="onboarding_login_title">వ్యక్తిగతంగా ఉండండి</string>
+    <string name="onboarding_login_subtitle">మీ ప్రాధాన్యతలు మరియు బుక్‌మార్క్‌లు సేవ్ చేయడానికి సైన్ ఇన్ చేయండి</string>
+    <string name="action_next">తదుపరి</string>
+    <string name="action_retry">మళ్లీ ప్రయత్నించండి</string>
+    <string name="action_skip">ఇప్పుడు దాటవేయి</string>
+    <string name="action_sign_in_google">Google తో సైన్ ఇన్</string>
+    <string name="action_bookmark">బుక్‌మార్క్</string>
+    <string name="action_remove_bookmark">బుక్‌మార్క్ తీసివేయి</string>
+    <string name="action_share">షేర్ చేయి</string>
+    <string name="category_all">అన్నీ</string>
+    <string name="label_premium">ప్రీమియం</string>
+    <string name="search_hint">వార్తలు, అంశాలు వెతకండి…</string>
+    <string name="search_empty_title">వార్తలు వెతకండి</string>
+    <string name="search_empty_subtitle">అంశం, కీవర్డ్ లేదా మూల పేరు టైప్ చేయండి</string>
+    <string name="search_no_results_title">ఫలితాలు కనుగొనబడలేదు</string>
+    <string name="search_no_results_subtitle">వేరే కీవర్డ్‌లు ప్రయత్నించండి</string>
+    <string name="video_empty_title">వీడియోలు అందుబాటులో లేవు</string>
+    <string name="video_empty_subtitle">షార్ట్ వీడియోల కోసం త్వరలో తిరిగి రండి</string>
+    <string name="profile_signed_in">సైన్ ఇన్ అయ్యారు</string>
+    <string name="profile_guest">అతిథి</string>
+    <string name="profile_sign_in_prompt">మీ అనుభవాన్ని వ్యక్తిగతీకరించడానికి సైన్ ఇన్ చేయండి</string>
+    <string name="profile_section_preferences">ప్రాధాన్యతలు</string>
+    <string name="profile_dark_mode">డార్క్ మోడ్</string>
+    <string name="profile_notifications">నోటిఫికేషన్‌లు</string>
+    <string name="profile_bookmarks">నా బుక్‌మార్క్‌లు</string>
+    <string name="profile_bookmarks_hint">సేవ్ చేసిన వ్యాసాలు</string>
+    <string name="profile_sign_out">సైన్ అవుట్</string>
+    <string name="profile_refresh">ప్రొఫైల్ రిఫ్రెష్</string>
+    <string name="profile_topics_selected">ఎంచుకున్న ఆసక్తులు: %1$d</string>
+    <string name="profile_sign_in_required">సైన్ ఇన్ అవసరం</string>
+    <string name="profile_open_bookmarks">బుక్‌మార్క్‌లు తెరవండి</string>
+    <string name="bookmarks_empty_title">ఇంకా బుక్‌మార్క్‌లు లేవు</string>
+    <string name="bookmarks_empty_subtitle">వివరాల స్క్రీన్ నుండి వ్యాసాలు సేవ్ చేయండి</string>
+    <string name="error_generic">ఏదో తప్పు జరిగింది. దయచేసి మళ్లీ ప్రయత్నించండి.</string>
+    <string name="error_no_internet">ఇంటర్నెట్ కనెక్షన్ లేదు</string>
+    <string name="error_timeout">అభ్యర్థన సమయం ముగిసింది</string>
+    <string name="article_by_author">రచయిత: %1$s</string>
+    <string name="article_quick_read">సారాంశం</string>
+    <string name="article_content_unavailable">కంటెంట్ అందుబాటులో లేదు</string>
+    <string name="article_read_on_source">పూర్తి వ్యాసం చదవండి</string>
+</resources>
+

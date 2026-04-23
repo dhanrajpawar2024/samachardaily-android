@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "490635211943",
+    "project_id": "samachardaily-d7fdc",
+    "storage_bucket": "samachardaily-d7fdc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490635211943:android:43530e9f1cd0b082b6d782",
+        "android_client_info": {
+          "package_name": "com.imp.samachardaily"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "490635211943-qsnaesqn12vf91u60fl5lq79iq9jdp5r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.imp.samachardaily",
+            "certificate_hash": "9db365cd7678a55e8f1ef8b5689d46218cc1d06e"
+          }
+        },
+        {
+          "client_id": "490635211943-usilav5ipfbj4gnh886cqbv2c9jagb5u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2sbgSN_LR8cWlMMpegwhp_MRY015BKpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "490635211943-8mc2rp70rubjcmpopcfhcj6f7clmt0c5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

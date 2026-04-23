@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">સમાચાર ડેઈલી</string>
+    <string name="nav_home">હોમ</string>
+    <string name="nav_search">શોધ</string>
+    <string name="nav_video">વિડિઓ</string>
+    <string name="nav_profile">પ્રોફાઈલ</string>
+    <string name="onboarding_language_title">તમારી ભાષા પસંદ કરો</string>
+    <string name="onboarding_language_subtitle">તમારા ફીડને વ્યક્તિગત બનાવવા ભાષા પસંદ કરો</string>
+    <string name="onboarding_categories_title">તમારી રુચિઓ પસંદ કરો</string>
+    <string name="onboarding_categories_subtitle">તમે અનુસરવા ઈચ્છો છો તે વિષયો પસંદ કરો</string>
+    <string name="onboarding_login_title">વ્યક્તિગત રહો</string>
+    <string name="onboarding_login_subtitle">તમારી પસંદ અને બુકમાર્ક સાચવવા સાઇન ઇન કરો</string>
+    <string name="action_next">આગળ</string>
+    <string name="action_retry">ફરી પ્રયાસ</string>
+    <string name="action_skip">અત્યારે છોડો</string>
+    <string name="action_sign_in_google">Google સાથે સાઇન ઇન</string>
+    <string name="action_bookmark">બુકમાર્ક</string>
+    <string name="action_remove_bookmark">બુકમાર્ક હટાવો</string>
+    <string name="action_share">શેર કરો</string>
+    <string name="category_all">બધું</string>
+    <string name="label_premium">પ્રીમિયમ</string>
+    <string name="search_hint">સમાચાર, વિષય શોધો…</string>
+    <string name="search_empty_title">સમાચાર શોધો</string>
+    <string name="search_empty_subtitle">વિષય, કીવર્ડ અથવા સ્ત્રોત નામ ટાઇપ કરો</string>
+    <string name="search_no_results_title">કોઈ પરિણામ મળ્યા નથી</string>
+    <string name="search_no_results_subtitle">અલગ કીવર્ડ અજમાવો</string>
+    <string name="video_empty_title">કોઈ વિડિઓ ઉપલબ્ધ નથી</string>
+    <string name="video_empty_subtitle">ટૂંક શ વિડિઓ માટે ફરી આવો</string>
+    <string name="profile_signed_in">સાઇન ઇન થયા</string>
+    <string name="profile_guest">મહેમાન</string>
+    <string name="profile_sign_in_prompt">તમારો અનુભવ વ્યક્તિગત બનાવવા સાઇન ઇન કરો</string>
+    <string name="profile_section_preferences">પસંદ</string>
+    <string name="profile_dark_mode">ડાર્ક મોડ</string>
+    <string name="profile_notifications">સૂચનાઓ</string>
+    <string name="profile_bookmarks">મારા બુકમાર્ક</string>
+    <string name="profile_bookmarks_hint">સાચવેલ લેખો</string>
+    <string name="profile_sign_out">સાઇન આઉટ</string>
+    <string name="profile_refresh">પ્રોફાઈલ રિફ્રેશ</string>
+    <string name="profile_topics_selected">પસંદ કરેલ રુચિઓ: %1$d</string>
+    <string name="profile_sign_in_required">સાઇન ઇન જરૂરી</string>
+    <string name="profile_open_bookmarks">બુકમાર્ક ખોલો</string>
+    <string name="bookmarks_empty_title">હજી કોઈ બુકમાર્ક નથી</string>
+    <string name="bookmarks_empty_subtitle">વિગત સ્ક્રીન પરથી લેખ સાચવો</string>
+    <string name="error_generic">કંઈક ભૂલ થઈ. ફરી પ્રયાસ કરો.</string>
+    <string name="error_no_internet">ઇન્ટરનેટ કનેક્શન નથી</string>
+    <string name="error_timeout">વિનંતી સમય સમાપ્ત</string>
+    <string name="article_by_author">લેખક: %1$s</string>
+    <string name="article_quick_read">સારાંશ</string>
+    <string name="article_content_unavailable">સામગ્રી ઉપલબ્ધ નથી</string>
+    <string name="article_read_on_source">સંપૂર્ણ લેખ વાંચો</string>
+</resources>
+

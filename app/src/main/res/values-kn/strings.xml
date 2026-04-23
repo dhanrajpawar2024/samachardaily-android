@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ಸಮಾಚಾರ್ ಡೈಲಿ</string>
+    <string name="nav_home">ಮನೆ</string>
+    <string name="nav_search">ಹುಡುಕು</string>
+    <string name="nav_video">ವೀಡಿಯೊ</string>
+    <string name="nav_profile">ಪ್ರೊಫೈಲ್</string>
+    <string name="onboarding_language_title">ನಿಮ್ಮ ಭಾಷೆ ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="onboarding_language_subtitle">ನಿಮ್ಮ ಫೀಡ್ ವ್ಯಕ್ತಿಗತಗೊಳಿಸಲು ಭಾಷೆ ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="onboarding_categories_title">ನಿಮ್ಮ ಆಸಕ್ತಿಗಳು ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="onboarding_categories_subtitle">ನೀವು ಅನುಸರಿಸಲು ಬಯಸುವ ವಿಷಯಗಳು ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="onboarding_login_title">ವ್ಯಕ್ತಿಗತವಾಗಿ ಉಳಿಯಿರಿ</string>
+    <string name="onboarding_login_subtitle">ನಿಮ್ಮ ಆದ್ಯತೆಗಳು ಮತ್ತು ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳನ್ನು ಉಳಿಸಲು ಸೈನ್ ಇನ್ ಮಾಡಿ</string>
+    <string name="action_next">ಮುಂದೆ</string>
+    <string name="action_retry">ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ</string>
+    <string name="action_skip">ಈಗ ಬಿಟ್ಟುಬಿಡಿ</string>
+    <string name="action_sign_in_google">Google ನಿಂದ ಸೈನ್ ಇನ್</string>
+    <string name="action_bookmark">ಬುಕ್‌ಮಾರ್ಕ್</string>
+    <string name="action_remove_bookmark">ಬುಕ್‌ಮಾರ್ಕ್ ತೆಗೆದುಹಾಕಿ</string>
+    <string name="action_share">ಹಂಚಿಕೊಳ್ಳಿ</string>
+    <string name="category_all">ಎಲ್ಲಾ</string>
+    <string name="label_premium">ಪ್ರೀಮಿಯಂ</string>
+    <string name="search_hint">ಸುದ್ದಿ, ವಿಷಯಗಳು ಹುಡುಕಿ…</string>
+    <string name="search_empty_title">ಸುದ್ದಿ ಹುಡುಕಿ</string>
+    <string name="search_empty_subtitle">ವಿಷಯ, ಕೀವರ್ಡ್ ಅಥವಾ ಮೂಲ ಹೆಸರು ಟೈಪ್ ಮಾಡಿ</string>
+    <string name="search_no_results_title">ಯಾವುದೇ ಫಲಿತಾಂಶಗಳು ಕಂಡುಬಂದಿಲ್ಲ</string>
+    <string name="search_no_results_subtitle">ಬೇರೆ ಕೀವರ್ಡ್‌ಗಳನ್ನು ಪ್ರಯತ್ನಿಸಿ</string>
+    <string name="video_empty_title">ಯಾವುದೇ ವೀಡಿಯೊಗಳಿಲ್ಲ</string>
+    <string name="video_empty_subtitle">ಶಾರ್ಟ್ ವೀಡಿಯೊಗಳಿಗಾಗಿ ಶೀಘ್ರದಲ್ಲೇ ಬನ್ನಿ</string>
+    <string name="profile_signed_in">ಸೈನ್ ಇನ್ ಆಗಿದೆ</string>
+    <string name="profile_guest">ಅತಿಥಿ</string>
+    <string name="profile_sign_in_prompt">ನಿಮ್ಮ ಅನುಭವವನ್ನು ವ್ಯಕ್ತಿಗತಗೊಳಿಸಲು ಸೈನ್ ಇನ್ ಮಾಡಿ</string>
+    <string name="profile_section_preferences">ಆದ್ಯತೆಗಳು</string>
+    <string name="profile_dark_mode">ಡಾರ್ಕ್ ಮೋಡ್</string>
+    <string name="profile_notifications">ಅಧಿಸೂಚನೆಗಳು</string>
+    <string name="profile_bookmarks">ನನ್ನ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು</string>
+    <string name="profile_bookmarks_hint">ಉಳಿಸಿದ ಲೇಖನಗಳು</string>
+    <string name="profile_sign_out">ಸೈನ್ ಔಟ್</string>
+    <string name="profile_refresh">ಪ್ರೊಫೈಲ್ ರಿಫ್ರೆಶ್</string>
+    <string name="profile_topics_selected">ಆಯ್ಕೆಮಾಡಿದ ಆಸಕ್ತಿಗಳು: %1$d</string>
+    <string name="profile_sign_in_required">ಸೈನ್ ಇನ್ ಅಗತ್ಯ</string>
+    <string name="profile_open_bookmarks">ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ</string>
+    <string name="bookmarks_empty_title">ಇನ್ನೂ ಯಾವುದೇ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳಿಲ್ಲ</string>
+    <string name="bookmarks_empty_subtitle">ವಿವರ ಪರದೆಯಿಂದ ಲೇಖನಗಳನ್ನು ಉಳಿಸಿ</string>
+    <string name="error_generic">ಏನೋ ತಪ್ಪಾಯಿತು. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="error_no_internet">ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕ ಇಲ್ಲ</string>
+    <string name="error_timeout">ವಿನಂತಿ ಸಮಯ ಮೀರಿತು</string>
+    <string name="article_by_author">ಲೇಖಕ: %1$s</string>
+    <string name="article_quick_read">ಸಾರಾಂಶ</string>
+    <string name="article_content_unavailable">ವಿಷಯ ಲಭ್ಯವಿಲ್ಲ</string>
+    <string name="article_read_on_source">ಪೂರ್ಣ ಲೇಖನ ಓದಿ</string>
+</resources>
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">समाचार डेली</string>
+
+    <!-- Bottom nav -->
+    <string name="nav_home">मुखपृष्ठ</string>
+    <string name="nav_search">शोध</string>
+    <string name="nav_video">व्हिडिओ</string>
+    <string name="nav_profile">प्रोफाइल</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_language_title">तुमची भाषा निवडा</string>
+    <string name="onboarding_language_subtitle">तुमचा फीड वैयक्तिक करण्यासाठी एक किंवा अधिक भाषा निवडा</string>
+    <string name="onboarding_categories_title">तुमच्या आवडी निवडा</string>
+    <string name="onboarding_categories_subtitle">तुम्हाला फॉलो करायचे असलेले विषय निवडा</string>
+    <string name="onboarding_login_title">वैयक्तिक राहा</string>
+    <string name="onboarding_login_subtitle">तुमच्या प्राधान्ये आणि बुकमार्क जतन करण्यासाठी साइन इन करा</string>
+
+    <!-- Actions -->
+    <string name="action_next">पुढे जा</string>
+    <string name="action_retry">पुन्हा प्रयत्न करा</string>
+    <string name="action_skip">आत्ता वगळा</string>
+    <string name="action_sign_in_google">Google ने साइन इन करा</string>
+    <string name="action_bookmark">बुकमार्क करा</string>
+    <string name="action_remove_bookmark">बुकमार्क काढा</string>
+    <string name="action_share">शेअर करा</string>
+
+    <!-- Feed -->
+    <string name="category_all">सर्व</string>
+    <string name="label_premium">प्रीमियम</string>
+
+    <!-- Search -->
+    <string name="search_hint">बातम्या, विषय शोधा…</string>
+    <string name="search_empty_title">बातम्या शोधा</string>
+    <string name="search_empty_subtitle">विषय, कीवर्ड किंवा स्रोताचे नाव टाइप करा</string>
+    <string name="search_no_results_title">कोणतेही परिणाम आढळले नाहीत</string>
+    <string name="search_no_results_subtitle">वेगळे कीवर्ड वापरून पहा किंवा फिल्टर काढा</string>
+
+    <!-- Video -->
+    <string name="video_empty_title">कोणतेही व्हिडिओ उपलब्ध नाहीत</string>
+    <string name="video_empty_subtitle">लवकरच शॉर्ट व्हिडिओसाठी परत या</string>
+
+    <!-- Profile -->
+    <string name="profile_signed_in">साइन इन केले आहे</string>
+    <string name="profile_guest">पाहुणे</string>
+    <string name="profile_sign_in_prompt">तुमचा अनुभव वैयक्तिक करण्यासाठी साइन इन करा</string>
+    <string name="profile_section_preferences">प्राधान्ये</string>
+    <string name="profile_dark_mode">डार्क मोड</string>
+    <string name="profile_notifications">सूचना</string>
+    <string name="profile_bookmarks">माझे बुकमार्क</string>
+    <string name="profile_bookmarks_hint">जतन केलेले लेख आणि वाचन यादी</string>
+    <string name="profile_sign_out">साइन आउट</string>
+    <string name="profile_refresh">प्रोफाइल रीफ्रेश करा</string>
+    <string name="profile_topics_selected">निवडलेल्या आवडी: %1$d</string>
+    <string name="profile_sign_in_required">साइन इन आवश्यक आहे</string>
+    <string name="profile_open_bookmarks">बुकमार्क उघडा</string>
+    <string name="bookmarks_empty_title">अजून बुकमार्क नाहीत</string>
+    <string name="bookmarks_empty_subtitle">डिटेल स्क्रीनवरून लेख जतन करा, ते येथे दिसतील.</string>
+    <string name="article_read_on_source">मूळ स्रोतावर पूर्ण लेख वाचा</string>
+    <string name="article_content_unavailable">हा प्रकाशक पृष्ठ अॅपमध्ये नीट दिसत नाही. खालील बटण वापरून मूळ लेख उघडा.</string>
+    <string name="article_quick_read">झटपट वाचन</string>
+    <string name="article_by_author">लेखक: %1$s</string>
+
+    <!-- Errors -->
+    <string name="error_generic">काहीतरी चूक झाली. कृपया पुन्हा प्रयत्न करा.</string>
+    <string name="error_no_internet">इंटरनेट कनेक्शन नाही</string>
+    <string name="error_timeout">विनंती वेळ संपली</string>
+</resources>
+

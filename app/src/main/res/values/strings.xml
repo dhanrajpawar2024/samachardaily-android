@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">SamacharDaily</string>
+
+    <!-- Bottom nav -->
+    <string name="nav_home">Home</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_video">Videos</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_language_title">Choose Your Language</string>
+    <string name="onboarding_language_subtitle">Select one or more languages to personalise your feed</string>
+    <string name="onboarding_categories_title">Pick Your Interests</string>
+    <string name="onboarding_categories_subtitle">Select topics you want to follow</string>
+    <string name="onboarding_login_title">Stay Personalised</string>
+    <string name="onboarding_login_subtitle">Sign in to save your preferences and bookmarks across devices</string>
+
+    <!-- Actions -->
+    <string name="action_next">Continue</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_skip">Skip for now</string>
+    <string name="action_sign_in_google">Sign in with Google</string>
+    <string name="action_bookmark">Bookmark</string>
+    <string name="action_remove_bookmark">Remove Bookmark</string>
+    <string name="action_share">Share</string>
+
+    <!-- Feed -->
+    <string name="category_all">All</string>
+    <string name="label_premium">Premium</string>
+
+    <!-- Search -->
+    <string name="search_hint">Search news, topics…</string>
+    <string name="search_empty_title">Search for News</string>
+    <string name="search_empty_subtitle">Type a topic, keyword or source name</string>
+    <string name="search_no_results_title">No results found</string>
+    <string name="search_no_results_subtitle">Try different keywords or remove filters</string>
+
+    <!-- Video -->
+    <string name="video_empty_title">No videos available</string>
+    <string name="video_empty_subtitle">Check back soon for short videos</string>
+
+    <!-- Profile -->
+    <string name="profile_signed_in">Signed in</string>
+    <string name="profile_guest">Guest</string>
+    <string name="profile_sign_in_prompt">Sign in to personalise your experience</string>
+    <string name="profile_section_preferences">Preferences</string>
+    <string name="profile_dark_mode">Dark mode</string>
+    <string name="profile_notifications">Notifications</string>
+    <string name="profile_bookmarks">My Bookmarks</string>
+    <string name="profile_bookmarks_hint">Saved articles and reading list</string>
+    <string name="profile_sign_out">Sign out</string>
+    <string name="profile_refresh">Refresh profile</string>
+    <string name="profile_topics_selected">Selected interests: %1$d</string>
+    <string name="profile_sign_in_required">Sign in required</string>
+    <string name="profile_open_bookmarks">Open bookmarks</string>
+    <string name="bookmarks_empty_title">No bookmarks yet</string>
+    <string name="bookmarks_empty_subtitle">Save articles from the detail screen and they will appear here.</string>
+    <string name="article_read_on_source">Read full article on source</string>
+    <string name="article_content_unavailable">This publisher page doesn’t render well inside the app. Use the button below to open the original article.</string>
+    <string name="article_quick_read">Quick read</string>
+    <string name="article_by_author">By %1$s</string>
+
+    <!-- Errors -->
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="error_no_internet">No internet connection</string>
+    <string name="error_timeout">Request timed out</string>
+</resources>

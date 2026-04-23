@@ -1,0 +1,170 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Android Release — triggers on version tags (v1.0.0, v1.2.3 …)
+# Builds signed release APK + AAB → uploads to GitHub Releases
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+name: Android Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'   # e.g. v1.0.0, v2.3.1
+  workflow_dispatch:
+    inputs:
+      version_name:
+        description: 'Version name (e.g. 1.0.0)'
+        required: true
+        default: '1.0.0'
+
+jobs:
+  release:
+    name: Build & Sign Release AAB + APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      # ── Checkout ──────────────────────────────────────────────
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ── Version from tag ─────────────────────────────────────
+      - name: Extract version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            VERSION=${GITHUB_REF#refs/tags/v}
+          else
+            VERSION=${{ github.event.inputs.version_name }}
+          fi
+          # Derive versionCode from semver (e.g. 1.2.3 → 10203)
+          MAJOR=$(echo $VERSION | cut -d. -f1)
+          MINOR=$(echo $VERSION | cut -d. -f2)
+          PATCH=$(echo $VERSION | cut -d. -f3)
+          VERSION_CODE=$(( MAJOR * 10000 + MINOR * 100 + PATCH ))
+          echo "version_name=$VERSION" >> $GITHUB_OUTPUT
+          echo "version_code=$VERSION_CODE" >> $GITHUB_OUTPUT
+          echo "🏷️  Version: $VERSION (code: $VERSION_CODE)"
+
+      # ── Java ──────────────────────────────────────────────────
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # ── Gradle Cache ─────────────────────────────────────────
+      - name: Cache Gradle packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle.kts', '**/libs.versions.toml') }}
+          restore-keys: gradle-${{ runner.os }}-
+
+      # ── google-services.json ─────────────────────────────────
+      - name: Write google-services.json
+        run: echo '${{ secrets.GOOGLE_SERVICES_JSON }}' > app/google-services.json
+
+      # ── Decode Keystore ───────────────────────────────────────
+      - name: Decode release keystore
+        run: |
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > app/release.keystore
+          echo "✅ Keystore decoded"
+
+      # ── Make gradlew executable ───────────────────────────────
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      # ── Unit Tests ────────────────────────────────────────────
+      - name: Run unit tests
+        run: ./gradlew testReleaseUnitTest --stacktrace
+
+      # ── Build Release AAB (Play Store) ────────────────────────
+      - name: Build signed release AAB
+        env:
+          KEYSTORE_PATH:   app/release.keystore
+          KEY_ALIAS:       ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD:    ${{ secrets.KEY_PASSWORD }}
+          STORE_PASSWORD:  ${{ secrets.STORE_PASSWORD }}
+          VERSION_NAME:    ${{ steps.version.outputs.version_name }}
+          VERSION_CODE:    ${{ steps.version.outputs.version_code }}
+        run: |
+          ./gradlew bundleRelease \
+            -PversionName=$VERSION_NAME \
+            -PversionCode=$VERSION_CODE \
+            --stacktrace
+
+      # ── Build Release APK (direct install) ───────────────────
+      - name: Build signed release APK
+        env:
+          KEYSTORE_PATH:   app/release.keystore
+          KEY_ALIAS:       ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD:    ${{ secrets.KEY_PASSWORD }}
+          STORE_PASSWORD:  ${{ secrets.STORE_PASSWORD }}
+          VERSION_NAME:    ${{ steps.version.outputs.version_name }}
+          VERSION_CODE:    ${{ steps.version.outputs.version_code }}
+        run: |
+          ./gradlew assembleRelease \
+            -PversionName=$VERSION_NAME \
+            -PversionCode=$VERSION_CODE \
+            --stacktrace
+
+      # ── Rename artifacts ─────────────────────────────────────
+      - name: Rename artifacts
+        run: |
+          VERSION=${{ steps.version.outputs.version_name }}
+          mv app/build/outputs/bundle/release/app-release.aab \
+             app/build/outputs/bundle/release/SamacharDaily-${VERSION}.aab
+          mv app/build/outputs/apk/release/app-release.apk \
+             app/build/outputs/apk/release/SamacharDaily-${VERSION}.apk
+          echo "APK size: $(du -sh app/build/outputs/apk/release/SamacharDaily-${VERSION}.apk)"
+          echo "AAB size: $(du -sh app/build/outputs/bundle/release/SamacharDaily-${VERSION}.aab)"
+
+      # ── Upload APK Artifact ───────────────────────────────────
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: SamacharDaily-${{ steps.version.outputs.version_name }}-apk
+          path: app/build/outputs/apk/release/SamacharDaily-*.apk
+          retention-days: 90
+
+      # ── Upload AAB Artifact ───────────────────────────────────
+      - name: Upload AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: SamacharDaily-${{ steps.version.outputs.version_name }}-aab
+          path: app/build/outputs/bundle/release/SamacharDaily-*.aab
+          retention-days: 90
+
+      # ── Create GitHub Release ─────────────────────────────────
+      - name: Create GitHub Release
+        if: github.event_name == 'push'
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "SamacharDaily v${{ steps.version.outputs.version_name }}"
+          tag_name: ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          files: |
+            app/build/outputs/apk/release/SamacharDaily-*.apk
+            app/build/outputs/bundle/release/SamacharDaily-*.aab
+          body: |
+            ## 📱 SamacharDaily v${{ steps.version.outputs.version_name }}
+
+            ### Downloads
+            | File | Purpose |
+            |------|---------|
+            | `.apk` | Direct install (sideload) |
+            | `.aab` | Google Play Store upload |
+
+            ### What's New
+            See [CHANGELOG](CHANGELOG.md) for details.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── Cleanup keystore ─────────────────────────────────────
+      - name: Remove keystore
+        if: always()
+        run: rm -f app/release.keystore
+

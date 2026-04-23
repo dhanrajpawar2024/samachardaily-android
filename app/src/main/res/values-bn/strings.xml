@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">সমাচার ডেইলি</string>
+    <string name="nav_home">হোম</string>
+    <string name="nav_search">খোঁজ</string>
+    <string name="nav_video">ভিডিও</string>
+    <string name="nav_profile">প্রোফাইল</string>
+    <string name="onboarding_language_title">আপনার ভাষা বেছে নিন</string>
+    <string name="onboarding_language_subtitle">আপনার ফিড ব্যক্তিগত করতে ভাষা বেছে নিন</string>
+    <string name="onboarding_categories_title">আপনার আগ্রহ বেছে নিন</string>
+    <string name="onboarding_categories_subtitle">আপনি যে বিষয়গুলো অনুসরণ করতে চান তা বেছে নিন</string>
+    <string name="onboarding_login_title">ব্যক্তিগতকৃত থাকুন</string>
+    <string name="onboarding_login_subtitle">পছন্দ ও বুকমার্ক সংরক্ষণ করতে সাইন ইন করুন</string>
+    <string name="action_next">পরবর্তী</string>
+    <string name="action_retry">আবার চেষ্টা করুন</string>
+    <string name="action_skip">এখন এড়িয়ে যান</string>
+    <string name="action_sign_in_google">Google দিয়ে সাইন ইন</string>
+    <string name="action_bookmark">বুকমার্ক</string>
+    <string name="action_remove_bookmark">বুকমার্ক সরান</string>
+    <string name="action_share">শেয়ার করুন</string>
+    <string name="category_all">সব</string>
+    <string name="label_premium">প্রিমিয়াম</string>
+    <string name="search_hint">সংবাদ, বিষয় খুঁজুন…</string>
+    <string name="search_empty_title">সংবাদ খুঁজুন</string>
+    <string name="search_empty_subtitle">বিষয়, কীওয়ার্ড বা উৎসের নাম টাইপ করুন</string>
+    <string name="search_no_results_title">কোনো ফলাফল পাওয়া যায়নি</string>
+    <string name="search_no_results_subtitle">ভিন্ন কীওয়ার্ড চেষ্টা করুন</string>
+    <string name="video_empty_title">কোনো ভিডিও নেই</string>
+    <string name="video_empty_subtitle">শর্ট ভিডিওর জন্য শীঘ্রই আসুন</string>
+    <string name="profile_signed_in">সাইন ইন করা হয়েছে</string>
+    <string name="profile_guest">অতিথি</string>
+    <string name="profile_sign_in_prompt">অভিজ্ঞতা ব্যক্তিগত করতে সাইন ইন করুন</string>
+    <string name="profile_section_preferences">পছন্দ</string>
+    <string name="profile_dark_mode">ডার্ক মোড</string>
+    <string name="profile_notifications">বিজ্ঞপ্তি</string>
+    <string name="profile_bookmarks">আমার বুকমার্ক</string>
+    <string name="profile_bookmarks_hint">সংরক্ষিত নিবন্ধ</string>
+    <string name="profile_sign_out">সাইন আউট</string>
+    <string name="profile_refresh">প্রোফাইল রিফ্রেশ</string>
+    <string name="profile_topics_selected">নির্বাচিত আগ্রহ: %1$d</string>
+    <string name="profile_sign_in_required">সাইন ইন প্রয়োজন</string>
+    <string name="profile_open_bookmarks">বুকমার্ক খুলুন</string>
+    <string name="bookmarks_empty_title">এখনো বুকমার্ক নেই</string>
+    <string name="bookmarks_empty_subtitle">বিস্তারিত স্ক্রীন থেকে নিবন্ধ সংরক্ষণ করুন</string>
+    <string name="error_generic">কিছু ভুল হয়েছে। আবার চেষ্টা করুন।</string>
+    <string name="error_no_internet">ইন্টারনেট সংযোগ নেই</string>
+    <string name="error_timeout">অনুরোধের সময় শেষ</string>
+    <string name="article_by_author">লেখক: %1$s</string>
+    <string name="article_quick_read">সারসংক্ষেপ</string>
+    <string name="article_content_unavailable">বিষয়বস্তু পাওয়া যাচ্ছে না</string>
+    <string name="article_read_on_source">পূর্ণ নিবন্ধ পড়ুন</string>
+</resources>
+

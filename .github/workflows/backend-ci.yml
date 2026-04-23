@@ -1,0 +1,171 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Backend CI — lint + test all Node.js services on every PR
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+name: Backend CI
+
+on:
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'backend/**'
+      - '.github/workflows/backend-ci.yml'
+  push:
+    branches: [develop]
+    paths:
+      - 'backend/**'
+
+concurrency:
+  group: backend-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ── Lint & Test each Node.js service ─────────────────────────
+  test-services:
+    name: Test ${{ matrix.service }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        service:
+          - api-gateway
+          - auth-service
+          - content-service
+          - feed-service
+          - search-service
+          - notification-service
+          - recommendation-service
+          - scraper-service
+
+    defaults:
+      run:
+        working-directory: backend/${{ matrix.service }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: backend/${{ matrix.service }}/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline
+
+      - name: Security audit
+        run: npm audit --audit-level=high
+        continue-on-error: true
+
+      - name: Run tests
+        run: npm test --if-present
+        env:
+          NODE_ENV: test
+
+  # ── TypeScript check on web portals ──────────────────────────
+  test-web-portals:
+    name: TypeScript check — ${{ matrix.portal }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        portal:
+          - web-app
+          - admin-dashboard
+
+    defaults:
+      run:
+        working-directory: backend/${{ matrix.portal }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: backend/${{ matrix.portal }}/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline
+
+      - name: TypeScript check
+        run: npx tsc --noEmit
+
+      - name: Build (verify it compiles)
+        run: npm run build
+        env:
+          NEXT_PUBLIC_API_URL: http://localhost:3001
+          VITE_API_URL: http://localhost:3001
+          VITE_SCRAPER_URL: http://localhost:3007
+
+  # ── Validate DB migrations (SQL syntax) ──────────────────────
+  validate-migrations:
+    name: Validate SQL migrations
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: samachar_test
+          POSTGRES_USER: tester
+          POSTGRES_PASSWORD: testpass
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run all migrations in order
+        env:
+          PGPASSWORD: testpass
+        run: |
+          for f in $(ls backend/db/migrations/V*.sql | sort); do
+            echo "▶ Running: $f"
+            psql -h localhost -U tester -d samachar_test -f "$f"
+            echo "✅ $(basename $f)"
+          done
+
+      - name: Verify expected tables exist
+        env:
+          PGPASSWORD: testpass
+        run: |
+          TABLES="users categories articles bookmarks user_article_interactions read_history notifications fcm_tokens"
+          for tbl in $TABLES; do
+            COUNT=$(psql -h localhost -U tester -d samachar_test -tAc \
+              "SELECT COUNT(*) FROM information_schema.tables WHERE table_name='$tbl';")
+            if [ "$COUNT" -eq 1 ]; then
+              echo "✅ Table: $tbl"
+            else
+              echo "❌ Missing table: $tbl"
+              exit 1
+            fi
+          done
+
+      - name: Verify all 10 languages have categories
+        env:
+          PGPASSWORD: testpass
+        run: |
+          LANGS="en hi te ta kn mr bn gu pa ml"
+          for lang in $LANGS; do
+            COUNT=$(psql -h localhost -U tester -d samachar_test -tAc \
+              "SELECT COUNT(*) FROM categories WHERE language='$lang' AND is_active=TRUE;" | tr -d '[:space:]')
+            if [ "$COUNT" -ge 8 ]; then
+              echo "✅ $lang: $COUNT categories"
+            else
+              echo "❌ $lang: only $COUNT categories (need ≥8)"
+              exit 1
+            fi
+          done
+          echo ""
+          echo "🎉 All 10 languages fully seeded!"
+

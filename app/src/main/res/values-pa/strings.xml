@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ਸਮਾਚਾਰ ਡੇਲੀ</string>
+    <string name="nav_home">ਹੋਮ</string>
+    <string name="nav_search">ਖੋਜ</string>
+    <string name="nav_video">ਵੀਡੀਓ</string>
+    <string name="nav_profile">ਪ੍ਰੋਫਾਈਲ</string>
+    <string name="onboarding_language_title">ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ</string>
+    <string name="onboarding_language_subtitle">ਆਪਣੀ ਫੀਡ ਨੂੰ ਨਿੱਜੀ ਬਣਾਉਣ ਲਈ ਭਾਸ਼ਾ ਚੁਣੋ</string>
+    <string name="onboarding_categories_title">ਆਪਣੀਆਂ ਦਿਲਚਸਪੀਆਂ ਚੁਣੋ</string>
+    <string name="onboarding_categories_subtitle">ਉਹ ਵਿਸ਼ੇ ਚੁਣੋ ਜਿਨ੍ਹਾਂ ਨੂੰ ਤੁਸੀਂ ਫੋਲੋ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ</string>
+    <string name="onboarding_login_title">ਨਿੱਜੀ ਰਹੋ</string>
+    <string name="onboarding_login_subtitle">ਆਪਣੀਆਂ ਤਰਜੀਹਾਂ ਅਤੇ ਬੁੱਕਮਾਰਕ ਸੰਭਾਲਣ ਲਈ ਸਾਈਨ ਇਨ ਕਰੋ</string>
+    <string name="action_next">ਅੱਗੇ</string>
+    <string name="action_retry">ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
+    <string name="action_skip">ਹੁਣੇ ਛੱਡੋ</string>
+    <string name="action_sign_in_google">Google ਨਾਲ ਸਾਈਨ ਇਨ</string>
+    <string name="action_bookmark">ਬੁੱਕਮਾਰਕ</string>
+    <string name="action_remove_bookmark">ਬੁੱਕਮਾਰਕ ਹਟਾਓ</string>
+    <string name="action_share">ਸ਼ੇਅਰ ਕਰੋ</string>
+    <string name="category_all">ਸਭ</string>
+    <string name="label_premium">ਪ੍ਰੀਮੀਅਮ</string>
+    <string name="search_hint">ਖ਼ਬਰਾਂ, ਵਿਸ਼ੇ ਖੋਜੋ…</string>
+    <string name="search_empty_title">ਖ਼ਬਰਾਂ ਖੋਜੋ</string>
+    <string name="search_empty_subtitle">ਵਿਸ਼ਾ, ਕੀਵਰਡ ਜਾਂ ਸਰੋਤ ਨਾਮ ਟਾਈਪ ਕਰੋ</string>
+    <string name="search_no_results_title">ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਮਿਲੇ</string>
+    <string name="search_no_results_subtitle">ਵੱਖਰੇ ਕੀਵਰਡ ਅਜ਼ਮਾਓ</string>
+    <string name="video_empty_title">ਕੋਈ ਵੀਡੀਓ ਉਪਲਬਧ ਨਹੀਂ</string>
+    <string name="video_empty_subtitle">ਛੇਤੀ ਵਾਪਸ ਆਓ ਸ਼ਾਰਟ ਵੀਡੀਓ ਲਈ</string>
+    <string name="profile_signed_in">ਸਾਈਨ ਇਨ ਹੋ ਗਏ</string>
+    <string name="profile_guest">ਮਹਿਮਾਨ</string>
+    <string name="profile_sign_in_prompt">ਆਪਣਾ ਤਜ਼ਰਬਾ ਨਿੱਜੀ ਬਣਾਉਣ ਲਈ ਸਾਈਨ ਇਨ ਕਰੋ</string>
+    <string name="profile_section_preferences">ਤਰਜੀਹਾਂ</string>
+    <string name="profile_dark_mode">ਡਾਰਕ ਮੋਡ</string>
+    <string name="profile_notifications">ਸੂਚਨਾਵਾਂ</string>
+    <string name="profile_bookmarks">ਮੇਰੇ ਬੁੱਕਮਾਰਕ</string>
+    <string name="profile_bookmarks_hint">ਸੁਰੱਖਿਅਤ ਲੇਖ</string>
+    <string name="profile_sign_out">ਸਾਈਨ ਆਊਟ</string>
+    <string name="profile_refresh">ਪ੍ਰੋਫਾਈਲ ਰਿਫ੍ਰੈਸ਼</string>
+    <string name="profile_topics_selected">ਚੁਣੀਆਂ ਦਿਲਚਸਪੀਆਂ: %1$d</string>
+    <string name="profile_sign_in_required">ਸਾਈਨ ਇਨ ਜ਼ਰੂਰੀ</string>
+    <string name="profile_open_bookmarks">ਬੁੱਕਮਾਰਕ ਖੋਲ੍ਹੋ</string>
+    <string name="bookmarks_empty_title">ਅਜੇ ਕੋਈ ਬੁੱਕਮਾਰਕ ਨਹੀਂ</string>
+    <string name="bookmarks_empty_subtitle">ਵੇਰਵਾ ਸਕ੍ਰੀਨ ਤੋਂ ਲੇਖ ਸੁਰੱਖਿਅਤ ਕਰੋ</string>
+    <string name="error_generic">ਕੁਝ ਗਲਤ ਹੋਇਆ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="error_no_internet">ਇੰਟਰਨੈੱਟ ਕੁਨੈਕਸ਼ਨ ਨਹੀਂ</string>
+    <string name="error_timeout">ਬੇਨਤੀ ਦਾ ਸਮਾਂ ਪੂਰਾ</string>
+    <string name="article_by_author">ਲੇਖਕ: %1$s</string>
+    <string name="article_quick_read">ਸਾਰ</string>
+    <string name="article_content_unavailable">ਸਮੱਗਰੀ ਉਪਲਬਧ ਨਹੀਂ</string>
+    <string name="article_read_on_source">ਪੂਰਾ ਲੇਖ ਪੜ੍ਹੋ</string>
+</resources>
+

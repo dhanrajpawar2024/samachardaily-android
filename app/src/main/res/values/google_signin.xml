@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Replace the value below with your actual Web Client ID from:
+  Google Cloud Console → APIs & Services → Credentials → OAuth 2.0 Client IDs → Web client
+  (This is the "Web application" client, NOT the Android client)
+-->
+<resources>
+    <string name="google_web_client_id" translatable="false">490635211943-8mc2rp70rubjcmpopcfhcj6f7clmt0c5.apps.googleusercontent.com</string>
+</resources>
+
