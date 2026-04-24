@@ -79,18 +79,30 @@ interface NewsApiService {
     // ── Search ───────────────────────────────────────────────
     @GET("api/v1/search")
     suspend fun search(
-        @Query("q")        query: String,
-        @Query("language") language: String? = null,
-        @Query("category") category: String? = null,
-        @Query("page")     page: Int     = 1,
-        @Query("limit")    limit: Int    = 20
-    ): ApiResponse<FeedResponseDto>
+        @Query("q")           query: String,
+        @Query("language")    language: String? = null,
+        @Query("category_id") categoryId: String? = null,
+        @Query("page")        page: Int     = 1,
+        @Query("limit")       limit: Int    = 20
+    ): ApiResponse<SearchResultDto>
 
     @GET("api/v1/search/suggestions")
-    suspend fun getSearchSuggestions(@Query("q") query: String): ApiResponse<List<String>>
+    suspend fun getSearchSuggestions(
+        @Query("q") query: String,
+        @Query("language") language: String? = null,
+        @Query("limit") limit: Int = 10
+    ): ApiResponse<SearchSuggestionsDto>
 
     @GET("api/v1/search/trending")
-    suspend fun getTrendingKeywords(): ApiResponse<List<String>>
+    suspend fun getTrendingKeywords(
+        @Query("language") language: String? = null,
+        @Query("limit") limit: Int = 20
+    ): ApiResponse<TrendingKeywordsDto>
+
+    @GET("api/v1/search/filters")
+    suspend fun getSearchFilters(
+        @Query("language") language: String? = null
+    ): ApiResponse<SearchFiltersDto>
 
     // ── Recommendations ──────────────────────────────────────
     @GET("api/v1/recommendations/for-user")
@@ -136,6 +148,24 @@ interface NewsApiService {
 
     @GET("api/v1/notifications/preferences")
     suspend fun getNotificationPreferences(): ApiResponse<Unit>
+
+    // ── Videos ──────────────────────────────────────────────
+    @GET("api/v1/videos")
+    suspend fun getVideos(
+        @Query("page")        page: Int        = 1,
+        @Query("limit")       limit: Int       = 20,
+        @Query("language")    language: String? = null,
+        @Query("category_id") categoryId: String? = null
+    ): VideoListResponseDto
+
+    @GET("api/v1/videos/{id}")
+    suspend fun getVideoById(@Path("id") id: String): VideoDetailResponseDto
+
+    @POST("api/v1/videos/{id}/view")
+    suspend fun incrementVideoView(@Path("id") id: String): VideoActionResponseDto
+
+    @POST("api/v1/videos/{id}/like")
+    suspend fun likeVideo(@Path("id") id: String): VideoActionResponseDto
 
     // ── Health ───────────────────────────────────────────────
     @GET("health")
