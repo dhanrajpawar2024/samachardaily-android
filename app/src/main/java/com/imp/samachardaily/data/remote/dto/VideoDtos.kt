@@ -1,59 +1,68 @@
 package com.imp.samachardaily.data.remote.dto
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 data class VideoDto(
-    @SerializedName("id")            val id: String,
-    @SerializedName("title")         val title: String,
-    @SerializedName("description")   val description: String?,
-    @SerializedName("video_url")     val videoUrl: String,
-    @SerializedName("thumbnail_url") val thumbnailUrl: String?,
-    @SerializedName("author_id")     val authorId: String?,
-    @SerializedName("author_name")   val authorName: String?,
-    @SerializedName("duration_ms")   val durationMs: Long,
-    @SerializedName("language")      val language: String,
-    @SerializedName("category_id")   val categoryId: String?,
-    @SerializedName("category_name") val categoryName: String?,
-    @SerializedName("view_count")    val viewCount: Int,
-    @SerializedName("like_count")    val likeCount: Int,
-    @SerializedName("share_count")   val shareCount: Int,
-    @SerializedName("published_at")  val publishedAt: String?,
-    @SerializedName("created_at")    val createdAt: String?
+    @Json(name = "id")            val id: String,
+    @Json(name = "title")         val title: String,
+    @Json(name = "description")   val description: String?,
+    @Json(name = "video_url")     val videoUrl: String,
+    @Json(name = "thumbnail_url") val thumbnailUrl: String?,
+    @Json(name = "author_id")     val authorId: String?,
+    @Json(name = "author_name")   val authorName: String?,
+    @Json(name = "duration_ms")   val durationMs: Long,
+    @Json(name = "language")      val language: String,
+    @Json(name = "category_id")   val categoryId: String?,
+    @Json(name = "category_name") val categoryName: String?,
+    @Json(name = "view_count")    val viewCount: Int,
+    @Json(name = "like_count")    val likeCount: Int,
+    @Json(name = "share_count")   val shareCount: Int,
+    @Json(name = "published_at")  val publishedAt: String?,
+    @Json(name = "created_at")    val createdAt: String?
 )
 
+@JsonClass(generateAdapter = true)
 data class VideoListData(
-    @SerializedName("videos")     val videos: List<VideoDto>,
-    @SerializedName("pagination") val pagination: VideoPaginationDto
+    @Json(name = "videos")     val videos: List<VideoDto>,
+    @Json(name = "pagination") val pagination: VideoPaginationDto?
 )
 
+@JsonClass(generateAdapter = true)
 data class VideoPaginationDto(
-    @SerializedName("page")        val page: Int,
-    @SerializedName("limit")       val limit: Int,
-    @SerializedName("total")       val total: Int,
-    @SerializedName("total_pages") val totalPages: Int
+    @Json(name = "page")        val page: Int,
+    @Json(name = "limit")       val limit: Int,
+    @Json(name = "total")       val total: Int,
+    @Json(name = "total_pages") val totalPages: Int
 )
 
+@JsonClass(generateAdapter = true)
 data class VideoListResponseDto(
-    @SerializedName("success") val success: Boolean,
-    @SerializedName("data")    val data: VideoListData
+    @Json(name = "success") val success: Boolean,
+    @Json(name = "data")    val data: VideoListData?
 )
 
+@JsonClass(generateAdapter = true)
 data class VideoDetailData(
-    @SerializedName("video") val video: VideoDto
+    @Json(name = "video") val video: VideoDto
 )
 
+@JsonClass(generateAdapter = true)
 data class VideoDetailResponseDto(
-    @SerializedName("success") val success: Boolean,
-    @SerializedName("data")    val data: VideoDetailData
+    @Json(name = "success") val success: Boolean,
+    @Json(name = "data")    val data: VideoDetailData?
 )
 
+@JsonClass(generateAdapter = true)
 data class VideoActionResponseDto(
-    @SerializedName("success") val success: Boolean,
-    @SerializedName("data")    val data: VideoActionData?
+    @Json(name = "success") val success: Boolean,
+    @Json(name = "data")    val data: VideoActionData?
 )
 
+@JsonClass(generateAdapter = true)
 data class VideoActionData(
-    @SerializedName("video_id")   val videoId: String,
-    @SerializedName("view_count") val viewCount: Int?,
-    @SerializedName("like_count") val likeCount: Int?
+    @Json(name = "video_id")   val videoId: String,
+    @Json(name = "view_count") val viewCount: Int?,
+    @Json(name = "like_count") val likeCount: Int?
 )

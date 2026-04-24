@@ -38,6 +38,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -108,8 +109,16 @@ dependencies {
 
     // AdMob
     implementation(libs.admob)
+    // AdMob UMP (GDPR / CCPA consent — required for EU users)
+    implementation(libs.ump)
     // Chrome Custom Tabs
     implementation(libs.androidx.browser)
+
+    // YouTube Player (for video section)
+    implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
+
+    // YouTube Player (for video section)
+    implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
 
     // Testing
     testImplementation(libs.junit)

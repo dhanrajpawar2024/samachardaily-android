@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Production network security config.
+  - Blocks all cleartext (HTTP) traffic.
+  - Trusts only system CA certificates (no user-installed CAs in release).
+  - Debug overrides in src/debug/res/xml/network_security_config.xml allow
+    cleartext for local-IP testing and trust user CAs.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
+

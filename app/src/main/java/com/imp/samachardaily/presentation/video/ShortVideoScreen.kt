@@ -9,19 +9,36 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.media3.ui.PlayerView
 import com.imp.samachardaily.R
 import com.imp.samachardaily.core.common.toCompactString
 import com.imp.samachardaily.presentation.common.EmptyState
 import com.imp.samachardaily.ui.theme.SamacharDailyTheme
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.options.IFramePlayerOptions
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+
+/** Extract the 11-char video ID from any YouTube URL format */
+fun extractYouTubeVideoId(url: String): String? {
+    val patterns = listOf(
+        Regex("""youtube\.com/watch\?v=([a-zA-Z0-9_-]{11})"""),
+        Regex("""youtu\.be/([a-zA-Z0-9_-]{11})"""),
+        Regex("""youtube\.com/embed/([a-zA-Z0-9_-]{11})"""),
+    )
+    for (pattern in patterns) {
+        val match = pattern.find(url)
+        if (match != null) return match.groupValues[1]
+    }
+    return null
+}
 
 @OptIn(androidx.compose.foundation.ExperimentalFoundationApi::class)
 @Composable
@@ -31,9 +48,15 @@ fun ShortVideoScreen(
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val pagerState = rememberPagerState(pageCount = { uiState.videos.size })
 
-    // When page changes, notify ViewModel to switch ExoPlayer media
     LaunchedEffect(pagerState.currentPage) {
         viewModel.onVideoVisible(pagerState.currentPage)
+    }
+
+    if (uiState.isLoading) {
+        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            CircularProgressIndicator()
+        }
+        return
     }
 
     if (uiState.videos.isEmpty()) {
@@ -50,25 +73,21 @@ fun ShortVideoScreen(
         modifier = Modifier.fillMaxSize()
     ) { page ->
         val video = uiState.videos[page]
+        val videoId = extractYouTubeVideoId(video.videoUrl)
+
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .background(Color.Black)
         ) {
-            // ExoPlayer view — only attached to live player for the current visible page
-            if (page == pagerState.currentPage) {
-                AndroidView(
-                    factory = { ctx ->
-                        PlayerView(ctx).apply {
-                            player = viewModel.player
-                            useController = false
-                        }
-                    },
+            if (videoId != null && page == pagerState.currentPage) {
+                YouTubeVideoPlayer(
+                    videoId = videoId,
                     modifier = Modifier.fillMaxSize()
                 )
             }
 
-            // Overlay: title + stats
+            // Overlay: title + channel + view count
             Column(
                 modifier = Modifier
                     .align(Alignment.BottomStart)
@@ -78,12 +97,13 @@ fun ShortVideoScreen(
                     text = video.title,
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
-                    color = Color.White
+                    color = Color.White,
+                    maxLines = 3
                 )
                 Spacer(Modifier.height(4.dp))
                 video.authorName?.let {
                     Text(
-                        text = "@$it",
+                        text = it,
                         style = MaterialTheme.typography.bodySmall,
                         color = Color.White.copy(alpha = 0.8f)
                     )
@@ -97,6 +117,39 @@ fun ShortVideoScreen(
             }
         }
     }
+}
+
+@Composable
+private fun YouTubeVideoPlayer(
+    videoId: String,
+    modifier: Modifier = Modifier
+) {
+    val lifecycleOwner = LocalLifecycleOwner.current
+
+    DisposableEffect(videoId) {
+        onDispose { /* lifecycle observer removed by YouTubePlayerView itself on destroy */ }
+    }
+
+    AndroidView(
+        factory = { context ->
+            YouTubePlayerView(context).apply {
+                enableAutomaticInitialization = false
+                lifecycleOwner.lifecycle.addObserver(this)
+
+                val options = IFramePlayerOptions.Builder()
+                    .controls(1)   // show native YT controls
+                    .autoplay(1)
+                    .build()
+
+                initialize(object : AbstractYouTubePlayerListener() {
+                    override fun onReady(youTubePlayer: YouTubePlayer) {
+                        youTubePlayer.loadVideo(videoId, 0f)
+                    }
+                }, options)
+            }
+        },
+        modifier = modifier
+    )
 }
 
 @Preview(showBackground = true)
